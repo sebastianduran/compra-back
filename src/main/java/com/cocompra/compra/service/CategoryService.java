@@ -30,6 +30,6 @@ public class CategoryService {
     }
 
     public boolean findById(int categoryId) {
-        return categoryRepo.findById(categoryId).isEmpty();
+        return categoryRepo.findById(categoryId).isPresent();
     }
 }
