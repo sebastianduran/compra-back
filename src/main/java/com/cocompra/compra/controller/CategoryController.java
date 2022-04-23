@@ -31,9 +31,9 @@ public class CategoryController {
     public ResponseEntity<ApiResponse> upadateCategory(@PathVariable("categoryId") int categoryId, @RequestBody Category category){
 
         if (!categoryService.findById(categoryId)){
-            return new ResponseEntity<>(new ApiResponse(false, "Categoria no encontrada"), HttpStatus.NOT_FOUND);
+            return new ResponseEntity<ApiResponse>(new ApiResponse(false, "Categoria no encontrada"), HttpStatus.NOT_FOUND);
         }
         categoryService.editCategory(categoryId, category);
-        return new ResponseEntity<>(new ApiResponse(true, "La categoria fue actualizada"), HttpStatus.OK);
+        return new ResponseEntity<ApiResponse>(new ApiResponse(true, "La categoria fue actualizada"), HttpStatus.OK);
     }
 }
