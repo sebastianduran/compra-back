@@ -16,12 +16,6 @@ public class OrderService {
     @Column(name = "id", nullable = false)
     private Long id;
 
-    @Value("${BASE_URL}")
-    private String baseURL;
-
-    @Value("${STRIPE_SECRET_KEY}")
-    private String apiKey;
-
     public Long getId() {
         return id;
     }
@@ -30,19 +24,4 @@ public class OrderService {
         this.id = id;
     }
 
-    public String getBaseURL() {
-        return baseURL;
-    }
-
-    public void setBaseURL(String baseURL) {
-        this.baseURL = baseURL;
-    }
-
-    public String getApiKey() {
-        return apiKey;
-    }
-
-    public void setApiKey(String apiKey) {
-        this.apiKey = apiKey;
-    }
 }
