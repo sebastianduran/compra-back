@@ -29,5 +29,19 @@ public class OrderService {
         this.id = id;
     }
 
+    public String getBaseURL() {
+        return baseURL;
+    }
 
+    public void setBaseURL(String baseURL) {
+        this.baseURL = baseURL;
+    }
+
+    public String getApiKey() {
+        return apiKey;
+    }
+
+    public void setApiKey(String apiKey) {
+        this.apiKey = apiKey;
+    }
 }
