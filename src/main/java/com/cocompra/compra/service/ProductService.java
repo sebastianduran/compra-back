@@ -1,6 +1,7 @@
 package com.cocompra.compra.service;
 
 import com.cocompra.compra.dto.ProductDto;
+import com.cocompra.compra.exceptions.ProductNotExistsException;
 import com.cocompra.compra.model.Category;
 import com.cocompra.compra.model.Product;
 import com.cocompra.compra.repository.ProductRepository;
@@ -62,5 +63,12 @@ public class ProductService {
         product.setPrice(productDto.getPrice());
         productRepository.save(product);
 
+    }
+    public Product findById(Integer productId) throws ProductNotExistsException {
+        Optional<Product> optionalProduct = productRepository.findById(productId);
+        if (optionalProduct.isEmpty()) {
+            throw new ProductNotExistsException("product id is invalid: " + productId);
+        }
+        return optionalProduct.get();
     }
 }
