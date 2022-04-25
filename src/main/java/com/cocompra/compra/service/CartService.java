@@ -77,4 +77,10 @@ public class CartService {
 
 
     }
+    public void deleteAllCartItems(User user){
+        List<Cart> cartList = cartRepository.findAllByUserOrderByCreatedDateDesc(user);
+        for (Cart cart: cartList) {
+            cartRepository.delete(cart);
+        }
+    }
 }
