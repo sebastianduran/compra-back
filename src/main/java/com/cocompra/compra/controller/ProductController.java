@@ -50,4 +50,14 @@ public class ProductController {
         productService.updateProduct(productDto, productId);
         return new ResponseEntity<>(new ApiResponse(true, "Producto creado"), HttpStatus.CREATED);
     }
+
+    @DeleteMapping("/delete/{productId}")
+    public ResponseEntity<ApiResponse> deleteZProduct(@PathVariable("productId") Integer productId, @RequestBody ProductDto productDto) throws Exception {
+        Optional<Category> optionalCategory = categoryRepo.findById(productDto.getCategoryId());
+        if (!optionalCategory.isPresent()){
+            return new ResponseEntity<>(new ApiResponse(false, "Categoria no existe"), HttpStatus.NOT_FOUND);
+        }
+        productService.deleteProduct(productDto, productId);
+        return new ResponseEntity<>(new ApiResponse(true, "Producto eliminado"), HttpStatus.CREATED);
+    }
 }

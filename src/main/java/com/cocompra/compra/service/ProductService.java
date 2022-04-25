@@ -26,6 +26,7 @@ public class ProductService {
         product.setName(productDto.getName());
         product.setPrice(productDto.getPrice());
         product.setCategory(category);
+        product.setStock(productDto.getStock());
         productRepository.save(product);
     }
 
@@ -37,6 +38,7 @@ public class ProductService {
         productDto.setPrice(product.getPrice());
         productDto.setCategoryId(product.getCategory().getId());
         productDto.setId(product.getId());
+        productDto.setStock(productDto.getStock());
         return productDto;
     }
 
@@ -61,9 +63,26 @@ public class ProductService {
         product.setImageURL(productDto.getImageURL());
         product.setName(productDto.getName());
         product.setPrice(productDto.getPrice());
+        product.setStock(productDto.getStock());
         productRepository.save(product);
 
     }
+    public void deleteProduct(ProductDto productDto, Integer productId) throws Exception {
+        Optional <Product> optionalProduct = productRepository.findById(productId);
+        // throw an exception si product no exite
+        if(!optionalProduct.isPresent()){
+            throw new Exception("Producto no esta presente");
+        }
+        Product product = optionalProduct.get();
+        product.setDescription(productDto.getDescription());
+        product.setImageURL(productDto.getImageURL());
+        product.setName(productDto.getName());
+        product.setPrice(productDto.getPrice());
+        product.setStock(productDto.getStock());
+        productRepository.delete(product);
+
+    }
+
     public Product findById(Integer productId) throws ProductNotExistsException {
         Optional<Product> optionalProduct = productRepository.findById(productId);
         if (optionalProduct.isEmpty()) {

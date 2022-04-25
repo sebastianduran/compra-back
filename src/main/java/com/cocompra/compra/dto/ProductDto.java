@@ -13,6 +13,8 @@ public class ProductDto {
     private @NotNull String description;
     private @NotNull Integer categoryId;
 
+    private @NotNull Integer stock;
+
     public ProductDto() {
     }
 
@@ -54,6 +56,14 @@ public class ProductDto {
 
     public void setCategoryId(Integer categoryId) {
         this.categoryId = categoryId;
+    }
+
+    public Integer getStock() {
+        return stock;
+    }
+
+    public void setStock(Integer stock) {
+        this.stock = stock;
     }
 
     public Integer getId() {
