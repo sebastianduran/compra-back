@@ -1,7 +1,6 @@
 package com.cocompra.compra.controller;
 
 import com.cocompra.compra.common.ApiResponse;
-import com.cocompra.compra.dto.Cart.CartDto;
 import com.cocompra.compra.dto.Checkout.CheckoutItemDto;
 import com.cocompra.compra.dto.Order.OrderDto;
 import com.cocompra.compra.model.User;
@@ -17,11 +16,13 @@ import java.util.List;
 @RestController
 @RequestMapping("/order")
 public class OrderController {
-    @Autowired
-    private AuthenticationService authenticationService;
 
     @Autowired
     private OrderService orderService;
+
+    @Autowired
+    private AuthenticationService authenticationService;
+
 
     @PostMapping("/create-checkout-session")
     public ResponseEntity<ApiResponse> checkoutList(@RequestBody List<CheckoutItemDto> checkoutItemDtoList) {

@@ -8,7 +8,7 @@ public class OrderDto {
     public OrderDto() {
     }
 
-    public List<OrderItemDto> getCartItems() {
+    public List<OrderItemDto> getOrderItems() {
         return orderItems;
     }
 
