@@ -38,7 +38,7 @@ public class ProductService {
         productDto.setPrice(product.getPrice());
         productDto.setCategoryId(product.getCategory().getId());
         productDto.setId(product.getId());
-        productDto.setStock(productDto.getStock());
+        productDto.setStock(product.getStock());
         return productDto;
     }
 

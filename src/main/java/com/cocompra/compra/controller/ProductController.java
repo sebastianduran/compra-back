@@ -48,7 +48,7 @@ public class ProductController {
             return new ResponseEntity<>(new ApiResponse(false, "Categoria no existe"), HttpStatus.NOT_FOUND);
         }
         productService.updateProduct(productDto, productId);
-        return new ResponseEntity<>(new ApiResponse(true, "Producto creado"), HttpStatus.CREATED);
+        return new ResponseEntity<>(new ApiResponse(true, "Producto actualizado"), HttpStatus.CREATED);
     }
 
     @DeleteMapping("/delete/{productId}")

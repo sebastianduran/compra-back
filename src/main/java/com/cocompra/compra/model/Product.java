@@ -15,7 +15,7 @@ public class Product {
     private @NotNull String imageURL;
     private @NotNull double price;
     private @NotNull String description;
-    private @NotNull double stock;
+    private @NotNull int stock;
     
     // Many to one relationship
     @ManyToOne
@@ -70,11 +70,11 @@ public class Product {
         this.category = category;
     }
 
-    public double getStock() {
+    public int getStock() {
         return stock;
     }
 
-    public void setStock(double stock) {
+    public void setStock(int stock) {
         this.stock = stock;
     }
 }
